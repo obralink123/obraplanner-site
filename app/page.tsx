@@ -549,68 +549,14 @@ export default function Home() {
           {/* Logo NASA-Grade */}
           <a href="#" className="flex items-center gap-2 group relative">
             <div className="absolute inset-0 bg-gradient-to-r from-[rgba(212,175,55,0.1)] to-transparent rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-sm"></div>
-            <svg 
-              className="h-10 w-auto relative z-10 group-hover:drop-shadow-[0_0_8px_rgba(212,175,55,0.6)] transition-all duration-300" 
-              viewBox="0 0 160 35" 
-              fill="none" 
-              xmlns="http://www.w3.org/2000/svg"
-            >
-
-              
-              {/* Text: ObraPlanner */}
-              <text x="4" y="20" className="font-bold text-2xl" fill="url(#textGoldGradient)">
-                <tspan className="font-extrabold tracking-tight">O</tspan>
-                <tspan className="font-extrabold tracking-tight">bra</tspan>
-                <tspan className="font-extrabold tracking-tight">P</tspan>
-                <tspan className="font-extrabold tracking-tight">lanner</tspan>
-              </text>
-              
-              {/* Trademark symbol */}
-              <text x="150" y="16" className="text-[10px]" fill="url(#trademarkGradient)" filter="url(#trademarkShadow)">™</text>
-              
-
-              
-              {/* Gold Gradient Definition */}
-              <defs>
-                <linearGradient id="goldGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                  <stop offset="0%" stopColor="#F5D06F" stopOpacity="1"/>
-                  <stop offset="50%" stopColor="#D4AF37" stopOpacity="1"/>
-                  <stop offset="100%" stopColor="#B8941F" stopOpacity="1"/>
-                </linearGradient>
-                
-                {/* Text Gold Gradient - Metallic Effect */}
-                <linearGradient id="textGoldGradient" x1="0%" y1="0%" x2="0%" y2="100%">
-                  <stop offset="0%" stopColor="#8A6D1D"/>
-                  <stop offset="22%" stopColor="#D4AF37"/>
-                  <stop offset="38%" stopColor="#F5D06F"/>
-                  <stop offset="56%" stopColor="#D4AF37"/>
-                  <stop offset="78%" stopColor="#B8870A"/>
-                  <stop offset="100%" stopColor="#7A5C16"/>
-                </linearGradient>
-                
-                {/* Trademark Gradient - Less bright than text */}
-                <linearGradient id="trademarkGradient" x1="0%" y1="0%" x2="0%" y2="100%">
-                  <stop offset="0%" stopColor="#6E5212"/>
-                  <stop offset="22%" stopColor="#B8870A"/>
-                  <stop offset="42%" stopColor="#D4AF37"/>
-                  <stop offset="52%" stopColor="#D4AF37"/>
-                  <stop offset="78%" stopColor="#8A6D1D"/>
-                  <stop offset="100%" stopColor="#5A3F0F"/>
-                </linearGradient>
-                
-                {/* Trademark Shadow Filter */}
-                <filter id="trademarkShadow">
-                  <feDropShadow dx="0" dy="1" stdDeviation="2" floodColor="rgba(0,0,0,0.2)"/>
-                  <feDropShadow dx="0" dy="0" stdDeviation="1" floodColor="rgba(42,27,6,0.2)"/>
-                </filter>
-                
-
-                
-
-                
-
-              </defs>
-            </svg>
+            <div className="flex items-center gap-1 relative z-10 group-hover:drop-shadow-[0_0_8px_rgba(212,175,55,0.6)] transition-all duration-300">
+              <span className="bg-gradient-to-b from-[#8A6D1D] via-[#D4AF37] via-[#F5D06F] via-[#D4AF37] to-[#7A5C16] bg-clip-text text-transparent font-extrabold text-xl sm:text-2xl tracking-tight">
+                ObraPlanner
+              </span>
+              <span className="bg-gradient-to-b from-[#6E5212] via-[#B8870A] via-[#D4AF37] to-[#5A3F0F] bg-clip-text text-transparent text-xs sm:text-sm font-bold" style={{filter: 'drop-shadow(0 1px 2px rgba(0,0,0,0.2))'}}>
+                ™
+              </span>
+            </div>
             {/* Subtle glow on hover */}
             <div className="absolute inset-0 bg-gradient-to-r from-[rgba(212,175,55,0.05)] to-transparent rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-700 scale-110"></div>
           </a>
