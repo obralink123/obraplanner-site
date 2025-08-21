@@ -511,6 +511,13 @@ export default function Home() {
           * {
             max-width: 100% !important;
           }
+          
+          /* Garantir que botões não se dupliquem visualmente */
+          .btn-outline-gold, .btn-gold {
+            display: inline-flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+          }
         }
         .device {
           width: 340px;
