@@ -742,7 +742,6 @@ export default function Home() {
                 <button id="heroTrial" className="btn-gold rounded-xl px-6 sm:px-7 py-3 font-semibold shadow-lg focus-visible:ring-2 focus-visible:ring-offset-0 focus-visible:ring-[rgba(212,175,55,0.6)] active:translate-y-0" aria-label="Iniciar teste grátis em 60 segundos" data-loading="false">Teste grátis em 60s</button>
                 <button id="btnDemo" className="btn-outline-gold rounded-xl px-6 sm:px-7 py-3 font-semibold">Ver em ação</button>
                 <a href="https://wa.me/53991196695?text=Ol%C3%A1!%20Vim%20pelo%20site%20ObraPlanner.%20Quero%20saber%20mais%20sobre%20o%20software." target="_blank" rel="noopener" className="btn-outline-gold rounded-xl px-6 sm:px-7 py-3 font-semibold">Falar no WhatsApp</a>
-                <a href="https://wa.me/53991196695?text=Ol%C3%A1!%20Vim%20pelo%20site%20ObraPlanner.%20Quero%20saber%20mais%20sobre%20o%20software." target="_blank" rel="noopener" className="btn-outline-gold rounded-xl px-7 py-3 font-semibold">Falar no WhatsApp</a>
               </div>
 
               <div className="mt-6 grid grid-cols-2 sm:grid-cols-4 gap-3 text-[12px] text-neutral-400">
