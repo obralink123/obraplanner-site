@@ -474,6 +474,25 @@ export default function Home() {
             transition: none !important;
           }
         }
+        
+        /* Breakpoints customizados para melhor responsividade */
+        @media (min-width: 475px) {
+          .xs\:w-\[320px\] {
+            width: 320px;
+          }
+        }
+        
+        /* Otimizações para mobile */
+        @media (max-width: 640px) {
+          .card {
+            padding: 1rem;
+          }
+          
+          .btn-gold, .btn-outline-gold {
+            font-size: 0.875rem;
+            padding: 0.75rem 1rem;
+          }
+        }
         .device {
           width: 340px;
           max-width: 95vw;
@@ -655,7 +674,7 @@ export default function Home() {
 
         {/* Mobile Menu NASA-Grade */}
         <div id="mobileMenu" className="hidden lg:hidden bg-gradient-to-b from-black/98 to-black/95 backdrop-blur-2xl border-t border-[rgba(212,175,55,0.12)] shadow-2xl">
-          <div className="px-4 py-6 space-y-1">
+          <div className="px-4 py-6 space-y-2">
             <a href="#recursos" className="block px-4 py-3 rounded-lg hover:bg-[rgba(212,175,55,0.05)] transition-all duration-300 font-medium group relative">
               <span className="relative z-10">Recursos</span>
               <div className="absolute inset-0 bg-gradient-to-r from-[rgba(212,175,55,0.05)] to-transparent rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
@@ -700,7 +719,7 @@ export default function Home() {
 
       {/* Sticky Mobile CTA */}
       <div id="stickyCta" className="sticky-cta mx-3 md:hidden">
-        <div className="card rounded-2xl px-4 py-3 flex items-center justify-between gap-3">
+        <div className="card rounded-2xl px-3 sm:px-4 py-3 flex items-center justify-between gap-2 sm:gap-3">
           <div className="flex items-center gap-3">
             <div className="w-8 h-8 rounded-lg border border-[rgba(212,175,55,0.35)] bg-[rgba(212,175,55,0.12)] flex items-center justify-center">
               <svg width="16" height="16" viewBox="0 0 24 24" className="text-[var(--emerald)]"><path fill="currentColor" d="M9 16.17 4.83 12 3.4 13.41 9 19l12-12-1.41-1.41z"/></svg>
@@ -711,8 +730,8 @@ export default function Home() {
             </div>
           </div>
           <div className="flex items-center gap-2">
-            <button id="stickyStart" className="btn-gold rounded-lg px-3 py-2 text-sm">Começar</button>
-            <button id="stickyDemo" className="btn-outline-gold rounded-lg px-3 py-2 text-sm">Ver em ação</button>
+            <button id="stickyStart" className="btn-gold rounded-lg px-2 sm:px-3 py-2 text-xs sm:text-sm">Começar</button>
+            <button id="stickyDemo" className="btn-outline-gold rounded-lg px-2 sm:px-3 py-2 text-xs sm:text-sm">Ver em ação</button>
           </div>
         </div>
       </div>
@@ -722,30 +741,31 @@ export default function Home() {
         <div className="hero-glow" />
 
         {/* Hero */}
-        <section className="pt-28 sm:pt-32 pb-16 sm:pb-24 relative overflow-hidden min-h-screen flex items-center">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid lg:grid-cols-2 gap-12 items-center w-full">
+        <section className="pt-24 sm:pt-28 lg:pt-32 pb-12 sm:pb-16 lg:pb-24 relative overflow-hidden min-h-screen flex items-center">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid lg:grid-cols-2 gap-8 sm:gap-12 items-center w-full">
             {/* Esquerda */}
             <div className="reveal">
               <span className="badge">
                 <svg width="14" height="14" viewBox="0 0 24 24"><path fill="currentColor" d="m9 16.2-3.5-3.5l-1.4 1.4L9 19l10-10l-1.4-1.4z"/></svg>
                 Software premium para construtoras
               </span>
-              <h1 className="text-4xl sm:text-6xl lg:text-7xl font-extrabold leading-[1.08] sm:leading-[1.05] tracking-tight mt-4">
+              <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-extrabold leading-[1.08] sm:leading-[1.05] tracking-tight mt-4">
                 <span className="text-neutral-100">Gestão sem lacunas.</span>
                 <span className="block bg-gradient-to-b from-[#8A6D1D] via-[#D4AF37] via-[#F5D06F] via-[#D4AF37] to-[#7A5C16] bg-clip-text text-transparent">Mais previsibilidade, mais margem, mais obras fechadas.</span>
               </h1>
-              <p className="mt-4 text-neutral-300/90 text-base sm:text-[1.05rem] leading-relaxed tracking-[0.01em]">
+              <p className="mt-4 text-neutral-300/90 text-sm sm:text-base md:text-[1.05rem] leading-relaxed tracking-[0.01em]">
                 Centralize orçamentos, compras, contratos, diário de obra e financeiro. Propostas padronizadas, aprovações rápidas e números confiáveis em tempo real.
               </p>
-              <ul className="mt-4 text-neutral-300 text-sm space-y-1">
+              <ul className="mt-4 text-neutral-300 text-xs sm:text-sm space-y-1">
                 <li className="inline-flex items-center gap-2"><svg width="18" height="18" viewBox="0 0 24 24" className="text-[var(--emerald)]"><path fill="currentColor" d="M9 16.17 4.83 12 3.4 13.41 9 19l12-12-1.41-1.41z"/></svg> Feche propostas 2x mais rápido com modelos e assinatura</li>
                 <li className="inline-flex items-center gap-2"><svg width="18" height="18" viewBox="0 0 24 24" className="text-[var(--emerald)]"><path fill="currentColor" d="M9 16.17 4.83 12 3.4 13.41 9 19l12-12-1.41-1.41z"/></svg> Custos, compras e aprovações em tempo real</li>
                 <li className="inline-flex items-center gap-2"><svg width="18" height="18" viewBox="0 0 24 24" className="text-[var(--emerald)]"><path fill="currentColor" d="M9 16.17 4.83 12 3.4 13.41 9 19l12-12-1.41-1.41z"/></svg> Relatórios premium em PDF e Excel com sua marca</li>
               </ul>
 
               <div className="mt-7 flex flex-col sm:flex-row gap-3">
-                <button id="heroTrial" className="btn-gold rounded-xl px-7 py-3 font-semibold shadow-lg focus-visible:ring-2 focus-visible:ring-offset-0 focus-visible:ring-[rgba(212,175,55,0.6)] active:translate-y-0" aria-label="Iniciar teste grátis em 60 segundos" data-loading="false">Teste grátis em 60s</button>
-                <button id="btnDemo" className="btn-outline-gold rounded-xl px-7 py-3 font-semibold">Ver em ação</button>
+                <button id="heroTrial" className="btn-gold rounded-xl px-6 sm:px-7 py-3 font-semibold shadow-lg focus-visible:ring-2 focus-visible:ring-offset-0 focus-visible:ring-[rgba(212,175,55,0.6)] active:translate-y-0" aria-label="Iniciar teste grátis em 60 segundos" data-loading="false">Teste grátis em 60s</button>
+                <button id="btnDemo" className="btn-outline-gold rounded-xl px-6 sm:px-7 py-3 font-semibold">Ver em ação</button>
+                <a href="https://wa.me/53991196695?text=Ol%C3%A1!%20Vim%20pelo%20site%20ObraPlanner.%20Quero%20saber%20mais%20sobre%20o%20software." target="_blank" rel="noopener" className="btn-outline-gold rounded-xl px-6 sm:px-7 py-3 font-semibold">Falar no WhatsApp</a>
                 <a href="https://wa.me/53991196695?text=Ol%C3%A1!%20Vim%20pelo%20site%20ObraPlanner.%20Quero%20saber%20mais%20sobre%20o%20software." target="_blank" rel="noopener" className="btn-outline-gold rounded-xl px-7 py-3 font-semibold">Falar no WhatsApp</a>
               </div>
 
@@ -774,7 +794,7 @@ export default function Home() {
                 />
 
                 {/* frame do banner */}
-                <div className="relative card rounded-3xl mx-auto w-[320px] sm:w-[380px] aspect-[3/4] overflow-hidden ring-1 ring-[rgba(212,175,55,0.18)]">
+                <div className="relative card rounded-3xl mx-auto w-[280px] xs:w-[320px] sm:w-[380px] aspect-[3/4] overflow-hidden ring-1 ring-[rgba(212,175,55,0.18)]">
                   {/* slides */}
                   <div id="pdfSlides" className="flex h-full transition-transform duration-500">
                     {[
@@ -807,14 +827,14 @@ export default function Home() {
                   {/* controles */}
                   <button
                     id="pdfPrev"
-                    className="absolute left-2 top-1/2 -translate-y-1/2 btn-outline-gold rounded-full w-9 h-9 hidden sm:inline-flex items-center justify-center"
+                    className="absolute left-1 sm:left-2 top-1/2 -translate-y-1/2 btn-outline-gold rounded-full w-8 h-8 sm:w-9 sm:h-9 inline-flex items-center justify-center text-sm sm:text-base"
                     aria-label="Anterior"
                   >
                     ‹
                   </button>
                   <button
                     id="pdfNext"
-                    className="absolute right-2 top-1/2 -translate-y-1/2 btn-outline-gold rounded-full w-9 h-9 hidden sm:inline-flex items-center justify-center"
+                    className="absolute right-1 sm:right-2 top-1/2 -translate-y-1/2 btn-outline-gold rounded-full w-8 h-8 sm:w-9 sm:h-9 inline-flex items-center justify-center text-sm sm:text-base"
                     aria-label="Próximo"
                   >
                     ›
@@ -822,7 +842,7 @@ export default function Home() {
                     </div>
 
                 {/* dots */}
-                <div className="mt-3 flex items-center justify-center gap-3" role="tablist" aria-label="Navegar PDFs">
+                <div className="mt-3 flex items-center justify-center gap-2 sm:gap-3" role="tablist" aria-label="Navegar PDFs">
                   <button className="dot pdf-dot" role="tab" aria-label="Orçamento" />
                   <button className="dot pdf-dot" role="tab" aria-label="Relatório" />
                   <button className="dot pdf-dot" role="tab" aria-label="Contrato" />
@@ -830,7 +850,7 @@ export default function Home() {
                   <button className="dot pdf-dot" role="tab" aria-label="Materiais" />
                         </div>
 
-                <div className="mt-4 text-center text-neutral-400 text-sm">
+                <div className="mt-4 text-center text-neutral-400 text-xs sm:text-sm px-2">
                   Exemplos de documentos gerados automaticamente (Orçamento, Relatório, Contrato, Comparativo de Preços e Materiais)
                         </div>
                         </div>
@@ -842,22 +862,22 @@ export default function Home() {
         {/* Provas rápidas */}
         <section className="py-12">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-                            <div className="card rounded-xl p-6 flex items-center gap-4 reveal hover:scale-105 transition-transform duration-300">
-                <span className="bg-gradient-to-b from-[#8A6D1D] via-[#D4AF37] via-[#F5D06F] via-[#D4AF37] to-[#7A5C16] bg-clip-text text-transparent font-bold text-lg">1.200+</span>
-                <div className="text-sm text-neutral-400">profissionais usando</div>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6">
+                            <div className="card rounded-xl p-4 sm:p-6 flex items-center gap-3 sm:gap-4 reveal hover:scale-105 transition-transform duration-300">
+                <span className="bg-gradient-to-b from-[#8A6D1D] via-[#D4AF37] via-[#F5D06F] via-[#D4AF37] to-[#7A5C16] bg-clip-text text-transparent font-bold text-base sm:text-lg">1.200+</span>
+                <div className="text-xs sm:text-sm text-neutral-400">profissionais usando</div>
                       </div>
-              <div className="card rounded-xl p-6 flex items-center gap-4 reveal hover:scale-105 transition-transform duration-300">
-                <svg width="20" height="20" viewBox="0 0 24 24" className="text-gold"><path fill="currentColor" d="M12 2 2 7v10l10 5 10-5V7L12 2z"/></svg>
-                <div className="text-sm text-neutral-400">segurança e privacidade</div>
+              <div className="card rounded-xl p-4 sm:p-6 flex items-center gap-3 sm:gap-4 reveal hover:scale-105 transition-transform duration-300">
+                <svg width="18" height="18" viewBox="0 0 24 24" className="text-gold sm:w-5 sm:h-5"><path fill="currentColor" d="M12 2 2 7v10l10 5 10-5V7L12 2z"/></svg>
+                <div className="text-xs sm:text-sm text-neutral-400">segurança e privacidade</div>
                       </div>
-              <div className="card rounded-xl p-6 flex items-center gap-4 reveal hover:scale-105 transition-transform duration-300">
-                <svg width="20" height="20" viewBox="0 0 24 24" className="text-gold"><path fill="currentColor" d="M3 3h18v2H3zM3 7h12v2H3zM3 11h18v2H3zM3 15h10v2H3zM3 19h18v2H3z"/></svg>
-                <div className="text-sm text-neutral-400">relatórios premium</div>
+              <div className="card rounded-xl p-4 sm:p-6 flex items-center gap-3 sm:gap-4 reveal hover:scale-105 transition-transform duration-300">
+                <svg width="18" height="18" viewBox="0 0 24 24" className="text-gold sm:w-5 sm:h-5"><path fill="currentColor" d="M3 3h18v2H3zM3 7h12v2H3zM3 11h18v2H3zM3 15h10v2H3zM3 19h18v2H3z"/></svg>
+                <div className="text-xs sm:text-sm text-neutral-400">relatórios premium</div>
                       </div>
-              <div className="card rounded-xl p-6 flex items-center gap-4 reveal hover:scale-105 transition-transform duration-300">
-                <svg width="20" height="20" viewBox="0 0 24 24" className="text-gold"><path fill="currentColor" d="M12 17a2 2 0 1 0 0-4a2 2 0 0 0 0 4zm6-9h2V6h-2V4h-2v2h-2v2h2v2h2zM8 9H4V7h4V5h2v2h4v2H10v2H8z"/></svg>
-                <div className="text-sm text-neutral-400">suporte humano</div>
+              <div className="card rounded-xl p-4 sm:p-6 flex items-center gap-3 sm:gap-4 reveal hover:scale-105 transition-transform duration-300">
+                <svg width="18" height="18" viewBox="0 0 24 24" className="text-gold sm:w-5 sm:h-5"><path fill="currentColor" d="M12 17a2 2 0 1 0 0-4a2 2 0 0 0 0 4zm6-9h2V6h-2V4h-2v2h-2v2h2v2h2zM8 9H4V7h4V5h2v2h4v2H10v2H8z"/></svg>
+                <div className="text-xs sm:text-sm text-neutral-400">suporte humano</div>
                       </div>
                     </div>
                   </div>

@@ -5,6 +5,7 @@ export const metadata = {
   title: "ObraPlanner — Gestão sem lacunas para construtoras",
   description:
     "ObraPlanner: software premium de gestão de obras. Orçamentos, compras, contratos, financeiro e relatórios em um só lugar. 7 dias grátis, sem cartão.",
+  viewport: "width=device-width, initial-scale=1, maximum-scale=1",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
