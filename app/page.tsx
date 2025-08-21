@@ -550,10 +550,21 @@ export default function Home() {
           <a href="#" className="flex items-center gap-2 group relative">
             <div className="absolute inset-0 bg-gradient-to-r from-[rgba(212,175,55,0.1)] to-transparent rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-sm"></div>
             <div className="flex items-center gap-1 relative z-10 group-hover:drop-shadow-[0_0_8px_rgba(212,175,55,0.6)] transition-all duration-300">
-              <span className="bg-gradient-to-b from-[#8A6D1D] via-[#D4AF37] via-[#F5D06F] via-[#D4AF37] to-[#7A5C16] bg-clip-text text-transparent font-extrabold text-xl sm:text-2xl tracking-tight">
+              <span className="text-gold font-extrabold text-xl sm:text-2xl tracking-tight" style={{
+                background: 'linear-gradient(to bottom, #8A6D1D 0%, #D4AF37 22%, #F5D06F 38%, #D4AF37 56%, #B8870A 78%, #7A5C16 100%)',
+                WebkitBackgroundClip: 'text',
+                WebkitTextFillColor: 'transparent',
+                backgroundClip: 'text'
+              }}>
                 ObraPlanner
               </span>
-              <span className="bg-gradient-to-b from-[#6E5212] via-[#B8870A] via-[#D4AF37] to-[#5A3F0F] bg-clip-text text-transparent text-xs sm:text-sm font-bold" style={{filter: 'drop-shadow(0 1px 2px rgba(0,0,0,0.2))'}}>
+              <span className="text-xs sm:text-sm font-bold" style={{
+                background: 'linear-gradient(to bottom, #6E5212 0%, #B8870A 22%, #D4AF37 42%, #D4AF37 52%, #8A6D1D 78%, #5A3F0F 100%)',
+                WebkitBackgroundClip: 'text',
+                WebkitTextFillColor: 'transparent',
+                backgroundClip: 'text',
+                filter: 'drop-shadow(0 1px 2px rgba(0,0,0,0.2))'
+              }}>
                 ™
               </span>
             </div>
@@ -688,12 +699,12 @@ export default function Home() {
                       <div className="flex items-center gap-2 sm:gap-3">
               <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-lg border border-[rgba(212,175,55,0.35)] bg-[rgba(212,175,55,0.12)] flex items-center justify-center">
                 <svg width="14" height="14" viewBox="0 0 24 24" className="text-[var(--emerald)] sm:w-4 sm:h-4"><path fill="currentColor" d="M9 16.17 4.83 12 3.4 13.41 9 19l12-12-1.41-1.41z"/></svg>
-              </div>
-              <div className="text-[11px] sm:text-[12px]">
-                <div className="font-bold">Teste grátis em 60s</div>
-                <div className="text-neutral-400">7 dias • Sem cartão</div>
-              </div>
             </div>
+              <div className="text-[11px] sm:text-[12px]">
+              <div className="font-bold">Teste grátis em 60s</div>
+              <div className="text-neutral-400">7 dias • Sem cartão</div>
+            </div>
+          </div>
           <div className="flex items-center gap-2">
             <button id="stickyStart" className="btn-gold rounded-lg px-2 sm:px-3 py-2 text-xs sm:text-sm">Começar</button>
             <button id="stickyDemo" className="btn-outline-gold rounded-lg px-2 sm:px-3 py-2 text-xs sm:text-sm">Ver em ação</button>
@@ -831,11 +842,11 @@ export default function Home() {
                             <div className="card rounded-xl p-3 sm:p-4 md:p-6 flex items-center gap-2 sm:gap-3 md:gap-4 reveal hover:scale-105 transition-transform duration-300">
                 <span className="bg-gradient-to-b from-[#8A6D1D] via-[#D4AF37] via-[#F5D06F] via-[#D4AF37] to-[#7A5C16] bg-clip-text text-transparent font-bold text-sm sm:text-base md:text-lg">1.200+</span>
                 <div className="text-xs sm:text-sm text-neutral-400">profissionais usando</div>
-                      </div>
+                        </div>
               <div className="card rounded-xl p-3 sm:p-4 md:p-6 flex items-center gap-2 sm:gap-3 md:gap-4 reveal hover:scale-105 transition-transform duration-300">
                 <svg width="16" height="16" viewBox="0 0 24 24" className="text-gold sm:w-5 sm:h-5"><path fill="currentColor" d="M12 2 2 7v10l10 5 10-5V7L12 2z"/></svg>
                 <div className="text-xs sm:text-sm text-neutral-400">segurança e privacidade</div>
-                      </div>
+                        </div>
               <div className="card rounded-xl p-3 sm:p-4 md:p-6 flex items-center gap-2 sm:gap-3 md:gap-4 reveal hover:scale-105 transition-transform duration-300">
                 <svg width="16" height="16" viewBox="0 0 24 24" className="text-gold sm:w-5 sm:h-5"><path fill="currentColor" d="M3 3h18v2H3zM3 7h12v2H3zM3 11h18v2H3zM3 15h10v2H3zM3 19h18v2H3z"/></svg>
                 <div className="text-xs sm:text-sm text-neutral-400">relatórios premium</div>
@@ -855,7 +866,7 @@ export default function Home() {
             <div className="max-w-4xl mx-auto text-center reveal">
               <h2 className="text-4xl sm:text-6xl font-extrabold tracking-tight">Benefícios principais</h2>
               <p className="text-neutral-400 mt-4 text-lg">Organize tudo em um lugar e ganhe eficiência real no dia a dia.</p>
-            </div>
+                </div>
             <div className="mt-16 grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
               {[
                 ["M3 3h18v2H3V3Zm2 4h14v2H5V7Zm-2 4h10v2H3v-2Zm0 4h18v2H3v-2Zm2 4h8v2H5v-2Z", "Orçamentos profissionais em minutos", "Modelos com margens e impostos. Envio com assinatura."],
@@ -868,7 +879,7 @@ export default function Home() {
                 <div key={i} className="card rounded-2xl p-8 reveal hover:scale-105 transition-transform duration-300">
                   <div className="w-14 h-14 rounded-xl bg-[rgba(212,175,55,0.12)] border border-gold flex items-center justify-center mb-4">
                     <svg width="24" height="24" viewBox="0 0 24 24" className="text-gold"><path fill="currentColor" d={String(d)} /></svg>
-                  </div>
+              </div>
                   <h3 className="font-bold text-lg mb-3">{h}</h3>
                   <p className="text-neutral-400 text-base leading-relaxed">{p}</p>
                 </div>
