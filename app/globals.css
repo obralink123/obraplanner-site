@@ -40,6 +40,24 @@
 html { scroll-behavior: smooth; }
 html, body { min-height: 100%; }
 
+/* Prevenir overflow horizontal no mobile */
+html, body {
+  overflow-x: hidden;
+  width: 100%;
+  max-width: 100vw;
+}
+
+/* Garantir que containers não ultrapassem a largura da tela */
+* {
+  box-sizing: border-box;
+}
+
+/* Prevenir elementos de causarem scroll horizontal */
+img, svg, video, canvas, audio, iframe, embed, object {
+  max-width: 100%;
+  height: auto;
+}
+
 body {
   font-family: Inter, Manrope, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, 'Helvetica Neue', Arial;
   color: var(--texto);

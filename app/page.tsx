@@ -492,6 +492,25 @@ export default function Home() {
             font-size: 0.875rem;
             padding: 0.75rem 1rem;
           }
+          
+          /* Garantir que não haja overflow horizontal */
+          body {
+            overflow-x: hidden !important;
+            width: 100% !important;
+            max-width: 100vw !important;
+          }
+          
+          /* Ajustar containers para mobile */
+          .max-w-7xl {
+            max-width: 100% !important;
+            padding-left: 1rem !important;
+            padding-right: 1rem !important;
+          }
+          
+          /* Prevenir elementos de ultrapassarem a tela */
+          * {
+            max-width: 100% !important;
+          }
         }
         .device {
           width: 340px;
@@ -718,17 +737,17 @@ export default function Home() {
       </header>
 
       {/* Sticky Mobile CTA */}
-      <div id="stickyCta" className="sticky-cta mx-3 md:hidden">
-        <div className="card rounded-2xl px-3 sm:px-4 py-3 flex items-center justify-between gap-2 sm:gap-3">
-          <div className="flex items-center gap-3">
-            <div className="w-8 h-8 rounded-lg border border-[rgba(212,175,55,0.35)] bg-[rgba(212,175,55,0.12)] flex items-center justify-center">
-              <svg width="16" height="16" viewBox="0 0 24 24" className="text-[var(--emerald)]"><path fill="currentColor" d="M9 16.17 4.83 12 3.4 13.41 9 19l12-12-1.41-1.41z"/></svg>
+      <div id="stickyCta" className="sticky-cta mx-2 sm:mx-3 md:hidden">
+        <div className="card rounded-2xl px-2 sm:px-3 md:px-4 py-3 flex items-center justify-between gap-2 sm:gap-3">
+                      <div className="flex items-center gap-2 sm:gap-3">
+              <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-lg border border-[rgba(212,175,55,0.35)] bg-[rgba(212,175,55,0.12)] flex items-center justify-center">
+                <svg width="14" height="14" viewBox="0 0 24 24" className="text-[var(--emerald)] sm:w-4 sm:h-4"><path fill="currentColor" d="M9 16.17 4.83 12 3.4 13.41 9 19l12-12-1.41-1.41z"/></svg>
+              </div>
+              <div className="text-[11px] sm:text-[12px]">
+                <div className="font-bold">Teste grátis em 60s</div>
+                <div className="text-neutral-400">7 dias • Sem cartão</div>
+              </div>
             </div>
-            <div className="text-[12px]">
-              <div className="font-bold">Teste grátis em 60s</div>
-              <div className="text-neutral-400">7 dias • Sem cartão</div>
-            </div>
-          </div>
           <div className="flex items-center gap-2">
             <button id="stickyStart" className="btn-gold rounded-lg px-2 sm:px-3 py-2 text-xs sm:text-sm">Começar</button>
             <button id="stickyDemo" className="btn-outline-gold rounded-lg px-2 sm:px-3 py-2 text-xs sm:text-sm">Ver em ação</button>
@@ -794,7 +813,7 @@ export default function Home() {
                 />
 
                 {/* frame do banner */}
-                <div className="relative card rounded-3xl mx-auto w-[280px] xs:w-[320px] sm:w-[380px] aspect-[3/4] overflow-hidden ring-1 ring-[rgba(212,175,55,0.18)]">
+                <div className="relative card rounded-3xl mx-auto w-[280px] xs:w-[320px] sm:w-[380px] max-w-[90vw] aspect-[3/4] overflow-hidden ring-1 ring-[rgba(212,175,55,0.18)]">
                   {/* slides */}
                   <div id="pdfSlides" className="flex h-full transition-transform duration-500">
                     {[
@@ -862,21 +881,21 @@ export default function Home() {
         {/* Provas rápidas */}
         <section className="py-12">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6">
-                            <div className="card rounded-xl p-4 sm:p-6 flex items-center gap-3 sm:gap-4 reveal hover:scale-105 transition-transform duration-300">
-                <span className="bg-gradient-to-b from-[#8A6D1D] via-[#D4AF37] via-[#F5D06F] via-[#D4AF37] to-[#7A5C16] bg-clip-text text-transparent font-bold text-base sm:text-lg">1.200+</span>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 md:gap-6">
+                            <div className="card rounded-xl p-3 sm:p-4 md:p-6 flex items-center gap-2 sm:gap-3 md:gap-4 reveal hover:scale-105 transition-transform duration-300">
+                <span className="bg-gradient-to-b from-[#8A6D1D] via-[#D4AF37] via-[#F5D06F] via-[#D4AF37] to-[#7A5C16] bg-clip-text text-transparent font-bold text-sm sm:text-base md:text-lg">1.200+</span>
                 <div className="text-xs sm:text-sm text-neutral-400">profissionais usando</div>
                       </div>
-              <div className="card rounded-xl p-4 sm:p-6 flex items-center gap-3 sm:gap-4 reveal hover:scale-105 transition-transform duration-300">
-                <svg width="18" height="18" viewBox="0 0 24 24" className="text-gold sm:w-5 sm:h-5"><path fill="currentColor" d="M12 2 2 7v10l10 5 10-5V7L12 2z"/></svg>
+              <div className="card rounded-xl p-3 sm:p-4 md:p-6 flex items-center gap-2 sm:gap-3 md:gap-4 reveal hover:scale-105 transition-transform duration-300">
+                <svg width="16" height="16" viewBox="0 0 24 24" className="text-gold sm:w-5 sm:h-5"><path fill="currentColor" d="M12 2 2 7v10l10 5 10-5V7L12 2z"/></svg>
                 <div className="text-xs sm:text-sm text-neutral-400">segurança e privacidade</div>
                       </div>
-              <div className="card rounded-xl p-4 sm:p-6 flex items-center gap-3 sm:gap-4 reveal hover:scale-105 transition-transform duration-300">
-                <svg width="18" height="18" viewBox="0 0 24 24" className="text-gold sm:w-5 sm:h-5"><path fill="currentColor" d="M3 3h18v2H3zM3 7h12v2H3zM3 11h18v2H3zM3 15h10v2H3zM3 19h18v2H3z"/></svg>
+              <div className="card rounded-xl p-3 sm:p-4 md:p-6 flex items-center gap-2 sm:gap-3 md:gap-4 reveal hover:scale-105 transition-transform duration-300">
+                <svg width="16" height="16" viewBox="0 0 24 24" className="text-gold sm:w-5 sm:h-5"><path fill="currentColor" d="M3 3h18v2H3zM3 7h12v2H3zM3 11h18v2H3zM3 15h10v2H3zM3 19h18v2H3z"/></svg>
                 <div className="text-xs sm:text-sm text-neutral-400">relatórios premium</div>
                       </div>
-              <div className="card rounded-xl p-4 sm:p-6 flex items-center gap-3 sm:gap-4 reveal hover:scale-105 transition-transform duration-300">
-                <svg width="18" height="18" viewBox="0 0 24 24" className="text-gold sm:w-5 sm:h-5"><path fill="currentColor" d="M12 17a2 2 0 1 0 0-4a2 2 0 0 0 0 4zm6-9h2V6h-2V4h-2v2h-2v2h2v2h2zM8 9H4V7h4V5h2v2h4v2H10v2H8z"/></svg>
+              <div className="card rounded-xl p-3 sm:p-4 md:p-6 flex items-center gap-2 sm:gap-3 md:gap-4 reveal hover:scale-105 transition-transform duration-300">
+                <svg width="16" height="16" viewBox="0 0 24 24" className="text-gold sm:w-5 sm:h-5"><path fill="currentColor" d="M12 17a2 2 0 1 0 0-4a2 2 0 0 0 0 4zm6-9h2V6h-2V4h-2v2h-2v2h2v2h2zM8 9H4V7h4V5h2v2h4v2H10v2H8z"/></svg>
                 <div className="text-xs sm:text-sm text-neutral-400">suporte humano</div>
                       </div>
                     </div>
