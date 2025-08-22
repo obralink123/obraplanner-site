@@ -45,6 +45,102 @@ html, body {
   overflow-x: hidden;
   width: 100%;
   max-width: 100vw;
+  /* Garantir que o conteúdo se ajuste à tela */
+  min-width: 320px;
+}
+
+/* Garantir responsividade em todos os dispositivos */
+@media (max-width: 640px) {
+  html, body {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  html, body {
+    font-size: 13px;
+  }
+}
+
+/* Melhorias específicas de responsividade */
+@media (max-width: 768px) {
+  .container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  
+  /* Garantir que botões não quebrem em mobile */
+  .btn {
+    white-space: nowrap;
+    min-width: fit-content;
+  }
+  
+  /* Ajustar espaçamentos em mobile */
+  .card {
+    margin: 0.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  /* Ajustes para telas muito pequenas */
+  .btn {
+    padding: 0.75rem 1rem;
+    font-size: 0.875rem;
+  }
+  
+  /* Garantir que textos não quebrem */
+  h1, h2, h3 {
+    word-wrap: break-word;
+    hyphens: auto;
+  }
+}
+
+/* Garantir que imagens sejam responsivas */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Prevenir overflow em containers */
+.container, .max-w-7xl, .max-w-6xl {
+  overflow-x: hidden;
+}
+
+/* Melhorar acessibilidade em mobile */
+@media (max-width: 768px) {
+  button, a {
+    min-height: 44px; /* Tamanho mínimo para touch */
+    min-width: 44px;
+  }
+  
+  /* Garantir que inputs sejam fáceis de usar em mobile */
+  input, textarea, select {
+    font-size: 16px; /* Previne zoom no iOS */
+  }
+  
+  /* Melhorias específicas para o dashboard em mobile */
+  .dashboard-content {
+    margin-left: 0 !important;
+    width: 100% !important;
+  }
+  
+  /* Sidebar mobile melhorada */
+  .sidebar-mobile {
+    width: 280px !important;
+    max-width: 90vw;
+  }
+}
+
+/* Melhorias para tablets */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .dashboard-content {
+    margin-left: 3rem !important;
+  }
+  
+  .sidebar-tablet {
+    width: 3rem !important;
+  }
 }
 
 /* Garantir que containers não ultrapassem a largura da tela */

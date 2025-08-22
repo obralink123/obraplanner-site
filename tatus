@@ -1,0 +1,5 @@
+[33m12461ff[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m)[m Correção: Erros de build resolvidos - aspas escapadas e tipos corrigidos
+[33m5f79b87[m Correção: Página inicial funcionando sem dependências de auth - botões Entrar funcionando - carrosséis e FAQ corrigidos
+[33m31682e6[m  Melhorado botões WhatsApp: texto centralizado e sombra verde no hover
+[33mc523037[m  Otimização adicional para mobile - prevenção de duplicação visual de botões
+[33me324004[m  Removido botão duplicado 'Falar no WhatsApp' no hero
