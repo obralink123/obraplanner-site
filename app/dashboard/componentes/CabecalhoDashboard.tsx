@@ -165,7 +165,7 @@ export default function CabecalhoDashboard() {
                     <div className="w-2 h-2 bg-blue-500 rounded-full mt-2 flex-shrink-0"></div>
                     <div className="min-w-0 flex-1">
                       <p className="text-white text-sm font-medium">Nova obra iniciada</p>
-                      <p className="text-white/60 text-xs mt-1">Obra "Residencial São Paulo" foi iniciada hoje</p>
+                      <p className="text-white/60 text-xs mt-1">Obra &quot;Residencial São Paulo&quot; foi iniciada hoje</p>
                       <p className="text-white/40 text-xs mt-1">Há 2 horas</p>
                     </div>
                   </div>

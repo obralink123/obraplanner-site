@@ -174,10 +174,7 @@ export default function Home() {
       }, 1500);
     });
 
-    // Login modal
-    const btnLoginHeader = document.getElementById("btnLoginHeader");
-    const btnLoginMobile = document.getElementById("btnLoginMobile");
-    const openLogin = () => openModal(loginModal);
+
     const closeLoginModal = () => closeModal(loginModal);
 
     closeLogin?.addEventListener("click", closeLoginModal);

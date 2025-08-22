@@ -4,7 +4,7 @@ import { createContext, useContext, ReactNode } from 'react'
 import { useAuth } from '@/hooks/useAuth'
 
 interface AuthContextType {
-  user: any
+  user: unknown
   loading: boolean
   error: string | null
   signIn: (email: string, password: string) => Promise<{ error: string | null }>
