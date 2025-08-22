@@ -1,5 +1,6 @@
 // app/layout.tsx
 import "./globals.css";
+import { AuthProvider } from "@/components/AuthProvider";
 
 export const metadata = {
   title: "ObraPlanner — Gestão sem lacunas para construtoras",
@@ -19,7 +20,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         />
       </head>
       {/* classes de selection iguais ao HTML */}
-      <body className="selection:bg-yellow-200 selection:text-black">{children}</body>
+      <body className="selection:bg-yellow-200 selection:text-black">
+        <AuthProvider>
+          {children}
+        </AuthProvider>
+      </body>
     </html>
   );
 }

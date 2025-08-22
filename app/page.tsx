@@ -5,6 +5,11 @@ import { useEffect, useState } from "react";
 export default function Home() {
   const [hideProofBar, setHideProofBar] = useState(false);
 
+
+
+
+
+
   useEffect(() => {
     // ====== scripts do HTML original, 1:1 ======
 
@@ -98,89 +103,83 @@ export default function Home() {
 
     window.addEventListener("scroll", handleProofBarScroll);
 
-    // Helpers modais
-    const openModal = (el: HTMLElement | null) => {
-      if (!el) return;
-      el.classList.remove("hidden");
-      el.classList.add("flex");
-    };
-    const closeModal = (el: HTMLElement | null) => {
-      if (!el) return;
-      el.classList.add("hidden");
-      el.classList.remove("flex");
-    };
+    // ====== scripts do HTML original, 1:1 ======
+
+    // Modais
+    const demoModal = document.getElementById("demoModal");
+    const trialModal = document.getElementById("trialModal");
+    const loginModal = document.getElementById("loginModal");
+    const btnHeaderTrial = document.getElementById("btnHeaderTrial");
+    const btnMobileTrial = document.getElementById("btnMobileTrial");
+    const btnStickyTrial = document.getElementById("btnStickyTrial");
+    const btnProofTrial = document.getElementById("btnProofTrial");
+    const closeDemo = document.getElementById("closeDemo");
+    const closeTrial = document.getElementById("closeTrial");
+    const closeLogin = document.getElementById("closeLogin");
+    const demoForm = document.getElementById("demoForm") as HTMLFormElement | null;
+    const trialForm = document.getElementById("trialForm") as HTMLFormElement | null;
+    const loginForm = document.getElementById("loginForm") as HTMLFormElement | null;
+    const demoSuccess = document.getElementById("demoSuccess");
+    const trialSuccess = document.getElementById("trialSuccess");
+    const loginSuccess = document.getElementById("loginSuccess");
+
+    const openModal = (modal: HTMLElement | null) => modal?.classList.remove("hidden");
+    const closeModal = (modal: HTMLElement | null) => modal?.classList.add("hidden");
 
     // Demo modal
-    const demoModal = document.getElementById("demoModal");
-    const btnDemo = document.getElementById("btnDemo");
-    const closeDemo = document.getElementById("closeDemo");
-    const demoForm = document.getElementById("demoForm") as HTMLFormElement | null;
-    const demoSuccess = document.getElementById("demoSuccess");
-    btnDemo?.addEventListener("click", () => openModal(demoModal));
-    document.getElementById("stickyDemo")?.addEventListener("click", () => openModal(demoModal));
-    document.getElementById("barDemo")?.addEventListener("click", () => openModal(demoModal));
-    closeDemo?.addEventListener("click", () => closeModal(demoModal));
+    const openDemo = () => openModal(demoModal);
+    const closeDemoModal = () => closeModal(demoModal);
+    btnHeaderTrial?.addEventListener("click", (e) => {
+      e.preventDefault();
+      openDemo();
+    });
+    btnMobileTrial?.addEventListener("click", (e) => {
+      e.preventDefault();
+      openDemo();
+    });
+    btnStickyTrial?.addEventListener("click", (e) => {
+      e.preventDefault();
+      openDemo();
+    });
+    btnProofTrial?.addEventListener("click", (e) => {
+      e.preventDefault();
+      openDemo();
+    });
+    closeDemo?.addEventListener("click", closeDemoModal);
     demoModal?.addEventListener("click", (e) => {
-      if (e.target === demoModal) closeModal(demoModal);
+      if (e.target === demoModal) closeDemoModal();
     });
     demoForm?.addEventListener("submit", (e) => {
       e.preventDefault();
       demoSuccess?.classList.remove("hidden");
-      setTimeout(() => closeModal(demoModal), 1400);
+      setTimeout(() => {
+        closeDemoModal();
+        window.open("https://calendly.com/obraplanner/demo", "_blank", "noopener");
+      }, 1500);
     });
 
     // Trial modal
-    const trialModal = document.getElementById("trialModal");
-    const closeTrial = document.getElementById("closeTrial");
-    const trialForm = document.getElementById("trialForm") as HTMLFormElement | null;
-    const trialSuccess = document.getElementById("trialSuccess");
     const openTrial = () => openModal(trialModal);
-    [
-      "heroTrial",
-      "btnHeaderTrial",
-      "btnMobileTrial",
-      "stickyStart",
-      "barTrial",
-      "primaryStart",
-      "compareStart",
-      "btnStartTrial",
-    ].forEach((id) => document.getElementById(id)?.addEventListener("click", openTrial));
-    closeTrial?.addEventListener("click", () => closeModal(trialModal));
+    const closeTrialModal = () => closeModal(trialModal);
+    closeTrial?.addEventListener("click", closeTrialModal);
     trialModal?.addEventListener("click", (e) => {
-      if (e.target === trialModal) closeModal(trialModal);
+      if (e.target === trialModal) closeTrialModal();
     });
     trialForm?.addEventListener("submit", (e) => {
       e.preventDefault();
       trialSuccess?.classList.remove("hidden");
-      setTimeout(() => closeModal(trialModal), 1400);
+      setTimeout(() => {
+        closeTrialModal();
+        window.open("https://app.obraplanner.com/signup", "_blank", "noopener");
+      }, 1500);
     });
-
-    // Whats plano
-    document.getElementById("btnPlanWhats")?.addEventListener("click", () =>
-      window.open(
-        "https://wa.me/53991196695?text=Ol%C3%A1!%20Vim%20pelo%20site%20ObraPlanner.%20Quero%20saber%20mais%20sobre%20o%20software.",
-        "_blank",
-        "noopener"
-      )
-    );
 
     // Login modal
-    const loginModal = document.getElementById("loginModal");
     const btnLoginHeader = document.getElementById("btnLoginHeader");
     const btnLoginMobile = document.getElementById("btnLoginMobile");
-    const closeLogin = document.getElementById("closeLogin");
-    const loginForm = document.getElementById("loginForm") as HTMLFormElement | null;
-    const loginSuccess = document.getElementById("loginSuccess");
     const openLogin = () => openModal(loginModal);
     const closeLoginModal = () => closeModal(loginModal);
-    btnLoginHeader?.addEventListener("click", (e) => {
-      e.preventDefault();
-      openLogin();
-    });
-    btnLoginMobile?.addEventListener("click", (e) => {
-      e.preventDefault();
-      openLogin();
-    });
+
     closeLogin?.addEventListener("click", closeLoginModal);
     loginModal?.addEventListener("click", (e) => {
       if (e.target === loginModal) closeLoginModal();
@@ -189,100 +188,247 @@ export default function Home() {
       e.preventDefault();
       loginSuccess?.classList.remove("hidden");
       setTimeout(() => {
-        window.open("https://app.obraplanner.com/login", "_blank", "noopener");
         closeLoginModal();
-      }, 1000);
+      }, 1500);
     });
 
-    // FAQ toggle
-    document.querySelectorAll<HTMLElement>("#faq .faq-item").forEach((item) => {
-      const btn = item.querySelector("button")!;
-      const ans = item.querySelector(".faq-answer") as HTMLElement | null;
-      const icon = item.querySelector("svg") as SVGSVGElement | null;
-      btn.addEventListener("click", () => {
-        const wasOpen = ans ? !ans.classList.contains("hidden") : false;
-        
-        // Fecha todos os itens primeiro
-        document
-          .querySelectorAll<HTMLElement>("#faq .faq-answer")
-          .forEach((x) => x.classList.add("hidden"));
-        document
-          .querySelectorAll<SVGSVGElement>("#faq .faq-item svg")
-          .forEach((s) => (s.style.transform = "rotate(0deg)"));
-        
-        // Se o item clicado não estava aberto, abre ele
-        if (!wasOpen) {
-          ans?.classList.remove("hidden");
-          if (icon) icon.style.transform = "rotate(180deg)";
-        }
-        // Se já estava aberto, permanece fechado (permitindo recolher)
-      });
-    });
-
-    // Carrossel depoimentos
-    const slides = document.getElementById("slides") as HTMLElement | null;
-    // pega só os dots dos depoimentos (evita colidir com os dots dos PDFs)
-    const dots = Array.from(document.querySelectorAll<HTMLButtonElement>(".testi-dot"));
-    const prev = document.getElementById("prev");
-    const next = document.getElementById("next");
-    let idx = 0;
-    const go = (i: number) => {
-      if (!slides) return;
-      idx = (i + dots.length) % dots.length;
-      slides.style.transform = `translateX(-${idx * 100}%)`;
-      dots.forEach((d, di) => d.classList.toggle("active", di === idx));
-    };
-    dots.forEach((d, di) => d.addEventListener("click", () => go(di)));
-    prev?.addEventListener("click", () => go(idx - 1));
-    next?.addEventListener("click", () => go(idx + 1));
-    go(0);
-    let auto = setInterval(() => go(idx + 1), 5000);
-    slides?.addEventListener("mouseenter", () => clearInterval(auto));
-    slides?.addEventListener("mouseleave", () => (auto = setInterval(() => go(idx + 1), 5000)));
-
-    // Carrossel dos PDFs (banner)
-    const pdfSlides = document.getElementById("pdfSlides") as HTMLElement | null;
-    const pdfDots = Array.from(document.querySelectorAll<HTMLButtonElement>(".pdf-dot"));
-    const pdfPrev = document.getElementById("pdfPrev");
-    const pdfNext = document.getElementById("pdfNext");
-    let pidx = 0;
-    
-    console.log("PDF Dots encontrados:", pdfDots.length);
-
-    const pgo = (i: number) => {
-      if (!pdfSlides || pdfDots.length === 0) return;
-      pidx = (i + pdfDots.length) % pdfDots.length;
-      pdfSlides.style.transform = `translateX(-${pidx * 100}%)`;
-      pdfDots.forEach((d, di) => d.classList.toggle("active", di === pidx));
-    };
-
-    pdfDots.forEach((d, di) => d.addEventListener("click", () => pgo(di)));
-    pdfPrev?.addEventListener("click", () => pgo(pidx - 1));
-    pdfNext?.addEventListener("click", () => pgo(pidx + 1));
-
-    pgo(0);
-    let pAuto = setInterval(() => pgo(pidx + 1), 4500);
-    pdfSlides?.addEventListener("mouseenter", () => clearInterval(pAuto));
-    pdfSlides?.addEventListener("mouseleave", () => (pAuto = setInterval(() => pgo(pidx + 1), 4500)));
-
-    // ESC fecha modais
-    const onEsc = (e: KeyboardEvent) => {
+    // Fechar todos os modais com ESC
+    const onKeyDown = (e: KeyboardEvent) => {
       if (e.key === "Escape") {
         [demoModal, trialModal, loginModal].forEach((m) => m && closeModal(m as HTMLElement));
       }
     };
-    document.addEventListener("keydown", onEsc);
+    document.addEventListener("keydown", onKeyDown);
 
-    // cleanup
+    // FAQ - Expandir/colapsar perguntas
+    const faqItems = document.querySelectorAll('.faq-item');
+    faqItems.forEach((item) => {
+      const button = item.querySelector('button');
+      const answer = item.querySelector('.faq-answer');
+      const icon = button?.querySelector('svg') as SVGElement;
+      
+      button?.addEventListener('click', () => {
+        const isOpen = item.classList.contains('open');
+        
+        // Fechar todos os outros itens
+        faqItems.forEach((otherItem) => {
+          if (otherItem !== item) {
+            otherItem.classList.remove('open');
+            const otherAnswer = otherItem.querySelector('.faq-answer');
+            const otherIcon = otherItem.querySelector('button svg') as SVGElement;
+            otherAnswer?.classList.add('hidden');
+            otherIcon?.style.setProperty('transform', 'rotate(0deg)');
+          }
+        });
+        
+        // Toggle do item atual
+        if (isOpen) {
+          item.classList.remove('open');
+          answer?.classList.add('hidden');
+          icon?.style.setProperty('transform', 'rotate(0deg)');
+        } else {
+          item.classList.add('open');
+          answer?.classList.remove('hidden');
+          icon?.style.setProperty('transform', 'rotate(180deg)');
+        }
+      });
+    });
+
+    // Carrossel de depoimentos
+    const slides = document.getElementById('slides') as HTMLElement;
+    const prevBtn = document.getElementById('prev');
+    const nextBtn = document.getElementById('next');
+    const testiDots = document.querySelectorAll('.testi-dot');
+    let currentSlide = 0;
+    const totalSlides = 3;
+
+    const updateSlide = (index: number) => {
+      if (slides) {
+        slides.style.transform = `translateX(-${index * 100}%)`;
+      }
+      
+      // Atualizar dots
+      testiDots.forEach((dot, i) => {
+        if (i === index) {
+          dot.classList.add('active');
+        } else {
+          dot.classList.remove('active');
+        }
+      });
+    };
+
+    prevBtn?.addEventListener('click', () => {
+      currentSlide = currentSlide > 0 ? currentSlide - 1 : totalSlides - 1;
+      updateSlide(currentSlide);
+    });
+
+    nextBtn?.addEventListener('click', () => {
+      currentSlide = currentSlide < totalSlides - 1 ? currentSlide + 1 : 0;
+      updateSlide(currentSlide);
+    });
+
+    // Dots do carrossel
+    testiDots.forEach((dot, index) => {
+      dot.addEventListener('click', () => {
+        currentSlide = index;
+        updateSlide(currentSlide);
+      });
+    });
+
+    // Auto-play do carrossel (opcional)
+    let autoPlayInterval: NodeJS.Timeout;
+    const startAutoPlay = () => {
+      autoPlayInterval = setInterval(() => {
+        currentSlide = currentSlide < totalSlides - 1 ? currentSlide + 1 : 0;
+        updateSlide(currentSlide);
+      }, 5000); // 5 segundos
+    };
+
+    const stopAutoPlay = () => {
+      clearInterval(autoPlayInterval);
+    };
+
+    // Iniciar auto-play
+    startAutoPlay();
+
+    // Parar auto-play quando o usuário interage
+    [prevBtn, nextBtn, ...testiDots].forEach((element) => {
+      element?.addEventListener('mouseenter', stopAutoPlay);
+      element?.addEventListener('mouseleave', startAutoPlay);
+    });
+
+    // Carrossel de PDFs
+    const pdfSlides = document.getElementById('pdfSlides') as HTMLElement;
+    const pdfPrevBtn = document.getElementById('pdfPrev');
+    const pdfNextBtn = document.getElementById('pdfNext');
+    const pdfDots = document.querySelectorAll('.pdf-dot');
+    let currentPdfSlide = 0;
+    const totalPdfSlides = 5;
+
+    const updatePdfSlide = (index: number) => {
+      if (pdfSlides) {
+        pdfSlides.style.transform = `translateX(-${index * 100}%)`;
+      }
+      
+      // Atualizar dots
+      pdfDots.forEach((dot, i) => {
+        if (i === index) {
+          dot.classList.add('active');
+        } else {
+          dot.classList.remove('active');
+        }
+      });
+    };
+
+    pdfPrevBtn?.addEventListener('click', () => {
+      currentPdfSlide = currentPdfSlide > 0 ? currentPdfSlide - 1 : totalPdfSlides - 1;
+      updatePdfSlide(currentPdfSlide);
+    });
+
+    pdfNextBtn?.addEventListener('click', () => {
+      currentPdfSlide = currentPdfSlide < totalPdfSlides - 1 ? currentPdfSlide + 1 : 0;
+      updatePdfSlide(currentPdfSlide);
+    });
+
+    // Dots do carrossel de PDFs
+    pdfDots.forEach((dot, index) => {
+      dot.addEventListener('click', () => {
+        currentPdfSlide = index;
+        updatePdfSlide(currentPdfSlide);
+      });
+    });
+
+    // Auto-play do carrossel de PDFs
+    let pdfAutoPlayInterval: NodeJS.Timeout;
+    const startPdfAutoPlay = () => {
+      pdfAutoPlayInterval = setInterval(() => {
+        currentPdfSlide = currentPdfSlide < totalPdfSlides - 1 ? currentPdfSlide + 1 : 0;
+        updatePdfSlide(currentPdfSlide);
+      }, 4000); // 4 segundos
+    };
+
+    const stopPdfAutoPlay = () => {
+      clearInterval(pdfAutoPlayInterval);
+    };
+
+    // Iniciar auto-play dos PDFs
+    startPdfAutoPlay();
+
+    // Parar auto-play quando o usuário interage com PDFs
+    [pdfPrevBtn, pdfNextBtn, ...pdfDots].forEach((element) => {
+      element?.addEventListener('mouseenter', stopPdfAutoPlay);
+      element?.addEventListener('mouseleave', startPdfAutoPlay);
+    });
+
+    // Botões adicionais dos modais
+    const heroTrial = document.getElementById('heroTrial');
+    const btnDemo = document.getElementById('btnDemo');
+    const btnStartTrial = document.getElementById('btnStartTrial');
+    const compareStart = document.getElementById('compareStart');
+    const secondaryStart = document.getElementById('secondaryStart');
+    const barDemo = document.getElementById('barDemo');
+    const barTrial = document.getElementById('barTrial');
+    const stickyStart = document.getElementById('stickyStart');
+    const stickyDemo = document.getElementById('stickyDemo');
+
+    // Event listeners para os botões
+    heroTrial?.addEventListener('click', (e) => {
+      e.preventDefault();
+      openTrial();
+    });
+
+    btnDemo?.addEventListener('click', (e) => {
+      e.preventDefault();
+      openDemo();
+    });
+
+    btnStartTrial?.addEventListener('click', (e) => {
+      e.preventDefault();
+      openTrial();
+    });
+
+    compareStart?.addEventListener('click', (e) => {
+      e.preventDefault();
+      openTrial();
+    });
+
+    secondaryStart?.addEventListener('click', (e) => {
+      e.preventDefault();
+      openTrial();
+    });
+
+    barDemo?.addEventListener('click', (e) => {
+      e.preventDefault();
+      openDemo();
+    });
+
+    barTrial?.addEventListener('click', (e) => {
+      e.preventDefault();
+      openTrial();
+    });
+
+    stickyStart?.addEventListener('click', (e) => {
+      e.preventDefault();
+      openTrial();
+    });
+
+    stickyDemo?.addEventListener('click', (e) => {
+      e.preventDefault();
+      openDemo();
+    });
+
     return () => {
       window.removeEventListener("scroll", onScroll);
       window.removeEventListener("scroll", handleProofBarScroll);
-      document.removeEventListener("keydown", onEsc);
-      menuBtn?.removeEventListener("click", toggleMenu);
-      clearInterval(auto);   // <- depoimentos
-      clearInterval(pAuto);  // <- PDFs
+      document.removeEventListener("keydown", onKeyDown);
+      
+      // Limpar intervalos
+      if (autoPlayInterval) clearInterval(autoPlayInterval);
+      if (pdfAutoPlayInterval) clearInterval(pdfAutoPlayInterval);
     };
   }, []);
+
+
 
   return (
     <>
@@ -612,9 +758,7 @@ export default function Home() {
           <div className="hidden lg:flex items-center gap-4">
             <a 
               id="btnLoginHeader" 
-              href="https://app.obraplanner.com/login" 
-              target="_blank" 
-              rel="noopener" 
+              href="/login"
               className="text-neutral-300 hover:text-gold font-semibold text-sm transition-all duration-300 relative group py-2 px-3 rounded-lg hover:bg-[rgba(212,175,55,0.05)]"
             >
               <span className="relative z-10">Entrar</span>
@@ -679,7 +823,7 @@ export default function Home() {
               <div className="absolute inset-0 bg-gradient-to-r from-[rgba(212,175,55,0.05)] to-transparent rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
             </a>
             <div className="border-t border-[rgba(212,175,55,0.15)] my-4 shadow-[0_0_4px_rgba(212,175,55,0.1)]"></div>
-            <a id="btnLoginMobile" href="https://app.obraplanner.com/login" target="_blank" rel="noopener" className="block px-4 py-3 rounded-lg hover:bg-[rgba(212,175,55,0.05)] transition-all duration-300 font-medium group relative">
+            <a id="btnLoginMobile" href="/login" className="block px-4 py-3 rounded-lg hover:bg-[rgba(212,175,55,0.05)] transition-all duration-300 font-medium group relative">
               <span className="relative z-10">Entrar</span>
               <div className="absolute inset-0 bg-gradient-to-r from-[rgba(212,175,55,0.05)] to-transparent rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
             </a>
